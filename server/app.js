@@ -14,8 +14,8 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Methods', 'GET, PUT, PATCH, POST, DELETE');
     next();
 });
-app.use("/posts", require("./routes/postsRoute"));
+/* app.use("/posts", require("./routes/postsRoute"));
 app.use("/users", require("./routes/usersRoute"));
-app.use("/tags", require("./routes/tagsRoute"));
+app.use("/tags", require("./routes/tagsRoute")); */
 
 module.exports = app;
