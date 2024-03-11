@@ -1,16 +1,21 @@
 const router = require('express').Router();
+const db = require('../models');
 const productService = require('../services/productService');
+
 
 
 // Hämta alla produkter
 router.get('/', (req, res) => {
-    productService.getAll().then((result) => {
-      res.status(result.status).json(result.data);
-    });
-  });
+        productService.getAll().then((result) => {
+        res.status(result.status).json(result.data);
+      }); 
+});
+
+
 
 // Hämta alla produkter och inkludera betyg 
-  router.get('/:id', (req, res) => {
+router.get('/:id', (req, res) => {
+
     productService.getAll().then((result) => {
       res.status(result.status).json(result.data);
     });
@@ -46,3 +51,6 @@ router.get('/', (req, res) => {
     res.status(result.status).json(result.data);
     });
   });
+
+
+  module.exports = router;

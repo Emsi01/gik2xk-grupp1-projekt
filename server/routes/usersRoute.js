@@ -54,7 +54,6 @@ router.post("/", (req, res) => {
   }
 });
 
-
 router.put("/", (req, res) => {
   const user = req.body;
   const invalidData = validate(user, constraints);
