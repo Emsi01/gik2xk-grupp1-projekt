@@ -37,7 +37,7 @@ router.get("/:id/getCart", (req, res) => {
 
 // Nedan följer crud + get 
 router.get("/", (req, res) => {
-   db.user.findAll().then((result) => {
+   db.users.findAll().then((result) => {
     res.send(result);
    })
 });
@@ -48,8 +48,8 @@ router.post("/", (req, res) => {
   if(invalidData) {
     res.status(400).json(invalidData);
   } else {
-    db.user.create(user).then(result => {
-      res.send(result);
+    db.users.create(user).then(() => {
+      res.send("Användaren skapades");
     }); 
   }
 });
@@ -61,23 +61,27 @@ router.put("/", (req, res) => {
   if (invalidData || !id) {
     res.status(400).json(invalidData || 'Id är obligatoriskt.');
   } else {
-    db.user
+    db.users
      .update(user, {
        where: { id: user.id }
      })
-     .then(result => {
-        res.send(result);
+     .then(() => {
+        res.send("Användaren ändrades");
      });
   }
 });
 
 router.delete("/", (req, res) => {
-    db.user
+    db.users
     .destroy({
       where: { id: req.body.id }
     }).then(() => {
-        res.json(`Produkten raderades`);
+        res.send("Användaren raderades");
     });
 });
+
+''
+``
+
 
 module.exports = router;

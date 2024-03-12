@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const db = require('../models');
 const productService = require('../services/productService');
 
 
@@ -11,36 +10,37 @@ router.get('/', (req, res) => {
       }); 
 });
 
-
-
 // Hämta alla produkter och inkludera betyg 
 router.get('/:id', (req, res) => {
-
-    productService.getAll().then((result) => {
+  const id = req.params.id; 
+    productService.getById(id).then((result) => {
       res.status(result.status).json(result.data);
     });
   });
+  
 
 // Ge produkt betyg 
   router.post('/:id/addRating', (req, res) => {
-    productService.getAll().then((result) => {
+    const rating = req.body;
+    const id = req.params.id;
+    productService.addRating(id, rating).then((result) => {
       res.status(result.status).json(result.data);
-    });
+     });
   });
 
 // Nedan följer crud funktioner för produkt 
-  router.post('/:id', (req, res) => {
-    const post = req.body;
-    productService.create(post).then((result) => {
+  router.post('/', (req, res) => {
+    const product = req.body;
+    productService.create(product).then((result) => {
     res.status(result.status).json(result.data);
     });
   });
 
   router.put('/', (req, res) => {
-    const post = req.body;
-    const id = post.id;
-
-  productService.update(post, id).then((result) => {
+    const product = req.body;
+    const id = product.id;
+    
+    productService.update(product, id).then((result) => {
     res.status(result.status).json(result.data);
     });
   });
