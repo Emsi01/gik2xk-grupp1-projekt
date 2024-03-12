@@ -28,6 +28,14 @@ router.get('/:id', (req, res) => {
      });
   });
 
+  router.post('/:id/addToCart', (req, res) => {
+    const amount = req.body;
+    const id = req.params.id;
+    productService.addToCart(id, amount).then((result) => {
+      res.status(result.status).json(result.data);
+     });
+  });
+
 // Nedan följer crud funktioner för produkt 
   router.post('/', (req, res) => {
     const product = req.body;
@@ -39,7 +47,7 @@ router.get('/:id', (req, res) => {
   router.put('/', (req, res) => {
     const product = req.body;
     const id = product.id;
-    
+
     productService.update(product, id).then((result) => {
     res.status(result.status).json(result.data);
     });

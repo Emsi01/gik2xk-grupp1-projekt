@@ -16,6 +16,7 @@ app.use((req, res, next) => {
 });
 app.use("/products", require("./routes/productRoute"));
 app.use("/users", require("./routes/usersRoute"));
+app.use("/carts", require("./routes/cartRoute"));
 
 
 module.exports = app;
