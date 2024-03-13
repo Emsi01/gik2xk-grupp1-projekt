@@ -28,13 +28,15 @@ router.get('/:id', (req, res) => {
      });
   });
 
-  router.post('/:id/addToCart', (req, res) => {
-    const amount = req.body;
-    const id = req.params.id;
-    productService.addToCart(id, amount).then((result) => {
+// Lägga till produkt i varukorg 
+ router.post('/:id/addToCart', async (req, res) => {
+    const userId = req.body.userId; 
+    const productId = req.params.id;
+    const amount = req.body.amount; 
+    productService.addToCart(userId, productId, amount).then((result) => {
       res.status(result.status).json(result.data);
      });
-  });
+  }); 
 
 // Nedan följer crud funktioner för produkt 
   router.post('/', (req, res) => {

@@ -2,6 +2,7 @@ const router = require("express").Router();
 const db = require("../models");
 const validate = require('validate.js');
 const productService = require('../services/productService');
+const userService = require('../services/userService');
 
 
 const constraints = {
@@ -30,7 +31,7 @@ const constraints = {
 //Hämta alla produkter som användaren lagt i senaste varukorgen 
 router.get("/:id/getCart", (req, res) => {
   const id = req.params.id;
-  productService.getByUser(id).then((result) => {
+  userService.getByUser(id).then((result) => {
     res.status(result.status).json(result.data);
    });
 });
