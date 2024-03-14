@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import ProductItemLarge from '../components/ProductItemLarge';
 import { Button } from '@mui/material';
-import Ratings from '../components/Ratings';
+import Ratings from '../components/Ratings'
 function ProductsDetail() {
     const product = {
         "id": 1,
@@ -27,11 +27,9 @@ function ProductsDetail() {
             <ProductItemLarge product={product}/>
             <Button onClick={()=> navigate(-1)}>Tillbaka</Button>
             <Button>Lägg till i varukorg</Button>
-           {/*  {<Ratings />
-            {product.ratings &&
-            product.ratings.map((ratings, i) => (
-                <Rating key={`rating_${i}`} rating={ratings} />
-            ))}  } */}
+            <Ratings/>
+           
+        
         </div>
      );
 }

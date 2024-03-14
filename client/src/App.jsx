@@ -16,8 +16,6 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }));
 
-
-
 function App() {
   return (
     <>

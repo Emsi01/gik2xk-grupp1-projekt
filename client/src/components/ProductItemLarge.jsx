@@ -1,4 +1,4 @@
-function ProductItemLarge() {
+function ProductItemLarge({product}) {
     return ( <h3>Product Item Large</h3> );
 }
 
