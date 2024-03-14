@@ -2,24 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import ProductsEdit from './views/ProductsEdit.jsx';
-import Products from './views/Products.jsx';
 import ProductsDetail from './views/ProductsDetail.jsx';
 import Home from './views/Home.jsx';
 import Carts from './views/Carts.jsx';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-/* import { CssBaseline } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {
-  blueGrey,
-  deepPurple,
-  green,
-  grey,
-  orange,
-  purple,
-  red,
-  teal
-} from '@mui/material/colors';  */
+
 
 const router = createBrowserRouter([
   {
@@ -43,9 +31,9 @@ const router = createBrowserRouter([
         element: <ProductsEdit />
       },
       {
-        path: '/users/:id/products',
-        element: <Products />
-      }
+        path: '/cart/',
+        element: <Carts />
+      } 
     ]
   }
 ]);
