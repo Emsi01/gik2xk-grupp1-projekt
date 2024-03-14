@@ -8,7 +8,7 @@ function ProductsDetail() {
         "title": "test",
         "description": "hejhejhejhejhejhej",
         "price": 22,
-        "imageUrl": "http://www.bild.se",
+        "imageUrl": "",
         "createdAt": "2024-03-12T12:42:20.000Z",
         "updatedAt": "2024-03-12T12:48:10.000Z",
         "ratings": [
@@ -28,7 +28,6 @@ function ProductsDetail() {
             <Button onClick={()=> navigate(-1)}>Tillbaka</Button>
             <Button>Lägg till i varukorg</Button>
             <Ratings/>
-           
         
         </div>
      );

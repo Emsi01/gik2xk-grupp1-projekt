@@ -1,5 +1,15 @@
+
+import Image from '../assets/img/bottle.jpg';
+
 function ProductItemLarge({product}) {
-    return ( <h3>Product Item Large</h3> );
+    return (
+        <div>
+            <img src={Image} height={200} width={200} alt="Bottle"/>
+            <h3>{product.title}</h3>
+            <p>Pris: {product.price}</p>
+            <p>Beskrivning: {product.description}</p>
+        </div>
+    );
 }
 
 export default ProductItemLarge;

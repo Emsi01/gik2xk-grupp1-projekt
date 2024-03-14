@@ -37,8 +37,10 @@ function ProductItemSmall({product}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
+          <Button size="small"><Link to={`/products/${product.id}`}>
+          <h3>{product.title}</h3>
+          </Link></Button>
+        <Button size="small">Lägg till i kundvagn</Button>
       </CardActions>
     </Card>
   );
