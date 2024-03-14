@@ -8,7 +8,7 @@ function ProductsDetail() {
         "title": "test",
         "description": "hejhejhejhejhejhej",
         "price": 22,
-        "imageUrl": "",
+        "imageUrl": "../assets/img/bottle.jpg",
         "createdAt": "2024-03-12T12:42:20.000Z",
         "updatedAt": "2024-03-12T12:48:10.000Z",
         "ratings": [

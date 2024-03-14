@@ -1,4 +1,5 @@
 import ProductItemSmall from "./ProductItemSmall";
+import { getAll } from '../services/ProductService';
 
 function ProductList() {
     const products = [ {
@@ -6,16 +7,17 @@ function ProductList() {
         "title": "Test produkt", 
         "description": "Testar testar...",
         "price": 1234,
-        "imageUrl": "http://fuljävlabild.com"
+        "imageUrl": "../assets/img/bottle.jpg"
     }, 
     {
         "id": 2,
         "title": "Test produkt 2", 
         "description": "Testar testar... 2",
         "price": 12342,
-        "imageUrl": "http://fuljävlabild2.com"
+        "imageUrl": "../assets/img/toothbrush.jpg"
     }];
     
+    getAll().then((products) => console.log(products));
     return (
         <ul>
             {products?.length > 0 ? products.map(product => (

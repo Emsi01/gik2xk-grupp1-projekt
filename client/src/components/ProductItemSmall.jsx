@@ -1,11 +1,7 @@
 import * as React from 'react';
 import {Link} from 'react-router-dom';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+/* import Image from '../assets/img/bottle.jpg'; */
+
 
 function ProductItemSmall({product}) {
     return (
@@ -13,9 +9,10 @@ function ProductItemSmall({product}) {
           <Link to={`/products/${product.id}`}>
             <h3>{product.title}</h3>
           </Link>
+           <img src={Image} height={200} width={200} alt="Bottle"/>
             <p>Beskrivning: {product.description}</p>
             <p>Pris: {product.price}</p>
-            <p>Bild: {product.imageUrl}</p>
+           
     </>
     );
 
