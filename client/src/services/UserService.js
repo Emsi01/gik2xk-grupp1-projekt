@@ -1,8 +1,8 @@
 import axios from "./api";
 
-export async function getAll() {
+export async function getAll(userId) {
     try {
-      const response = await axios.get('/users');
+      const response = await axios.get(`/users/${userId}/getCart`);
   
       if (response.status === 200) return response.data;
       else {
