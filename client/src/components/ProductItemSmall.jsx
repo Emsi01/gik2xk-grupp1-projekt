@@ -9,7 +9,7 @@ function ProductItemSmall({product}) {
           <Link to={`/products/${product.id}`}>
             <h3>{product.title}</h3>
           </Link>
-          <img src={Image} height={200} width={200} alt={`Bild på ${product.title}`}/>
+          <img src={product.imageUrl} width={200} alt={`Bild på ${product.title}`}/>
             <p>Beskrivning: {product.description}</p>
             <p>Pris: {product.price}</p>
            
