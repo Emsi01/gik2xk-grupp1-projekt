@@ -79,10 +79,9 @@ export async function getAll(endpoint = '/products') {
     }
   }
 
-  //inte klar
-  export async function addToCart(productId, amount) {
+  export async function addToCart(userId, productId, amount) {
     try {
-      const response = await axios.post(`/product/${productId}/addToCart`, amount);
+      const response = await axios.post(`/product/${productId}/addToCart`, amount, userId);
       if (response.status === 200) return response.data;
       else {
         console.log(data);
@@ -91,6 +90,6 @@ export async function getAll(endpoint = '/products') {
     } catch (e) {
       e?.response ? console.log(e.response.data) : console.log(e);
     }
-  }
+  } 
 
   

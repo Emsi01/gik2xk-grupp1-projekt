@@ -2,8 +2,63 @@ import { useNavigate } from 'react-router-dom';
 import ProductItemLarge from '../components/ProductItemLarge';
 import { Button } from '@mui/material';
 import Ratings from '../components/Ratings'
+import { getOne } from '../services/ProductService';
+import {useState, useEffect} from 'react';
+import { useParams } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 function ProductsDetail() {
-    const product = {
+    
+  const { id } = useParams();
+
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    getOne(id).then((product) => setProduct(product));
+  }, [id]); 
+    const navigate = useNavigate();
+
+    return product ? ( 
+        <div>
+            <ProductItemLarge product={product}/>
+            <Button onClick={()=> navigate(-1)}>Tillbaka</Button>
+            <Button>Lägg till i varukorg</Button>
+            <Button><Link to={`/products/${product.id}/edit`}>Ändra</Link></Button>
+            
+            <Ratings/>
+        </div>
+     ) : (<h3>Kunde inte hitta produkt</h3>);
+}
+
+export default ProductsDetail;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* const product = {
         "id": 1,
         "title": "test",
         "description": "hejhejhejhejhejhej",
@@ -20,17 +75,4 @@ function ProductsDetail() {
                 "productId": 1
             }
         ]
-    }
-    const navigate = useNavigate();
-    return ( 
-        <div>
-            <ProductItemLarge product={product}/>
-            <Button onClick={()=> navigate(-1)}>Tillbaka</Button>
-            <Button>Lägg till i varukorg</Button>
-            <Ratings/>
-        
-        </div>
-     );
-}
-
-export default ProductsDetail;
+    } */

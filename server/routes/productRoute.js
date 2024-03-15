@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
       }); 
 });
 
-// Hämta alla produkter och inkludera betyg 
+// Hämta en specifik produkt och inkludera betyg 
 router.get('/:id', (req, res) => {
   const id = req.params.id; 
     productService.getById(id).then((result) => {

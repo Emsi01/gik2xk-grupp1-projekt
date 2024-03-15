@@ -1,23 +1,16 @@
 import ProductItemSmall from "./ProductItemSmall";
 import { getAll } from '../services/ProductService';
+import {useState, useEffect} from 'react';
 
 function ProductList() {
-    const products = [ {
-        "id": 1,
-        "title": "Test produkt", 
-        "description": "Testar testar...",
-        "price": 1234,
-        "imageUrl": "../assets/img/bottle.jpg"
-    }, 
-    {
-        "id": 2,
-        "title": "Test produkt 2", 
-        "description": "Testar testar... 2",
-        "price": 12342,
-        "imageUrl": "../assets/img/toothbrush.jpg"
-    }];
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        getAll().then(products => {
+            setProducts(products);
+        })
+    }, []) 
     
-    getAll().then((products) => console.log(products));
     return (
         <ul>
             {products?.length > 0 ? products.map(product => (
