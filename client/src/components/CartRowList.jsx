@@ -78,9 +78,9 @@ function CartRowList() {
             cartRow.products.map(product => (
               <TableRow key={product.id}>
                 <TableCell>{product.title}</TableCell>
-                <TableCell align="right">{cartRow.amount}</TableCell>
+                <TableCell align="right">{product.cartRow.amount}</TableCell>
                 <TableCell align="right">{product.price}</TableCell>
-                <TableCell align="right">{cartRow.amount * product.price}</TableCell>
+                <TableCell align="right">{product.cartRow.amount * product.price}</TableCell>
               </TableRow>
             ))
           ))}

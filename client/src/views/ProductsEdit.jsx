@@ -1,3 +1,6 @@
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import DeleteIcon from '@mui/icons-material/Delete';
+import SaveIcon from '@mui/icons-material/Save';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { create, getOne, remove, update } from '../services/ProductService';
@@ -9,9 +12,6 @@ import {
   TextField,
   Typography
 } from '@mui/material';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import DeleteIcon from '@mui/icons-material/Delete';
-import SaveIcon from '@mui/icons-material/Save';
 
 function productsEdit() {
   const { id } = useParams();
@@ -21,7 +21,8 @@ function productsEdit() {
     title: '',
     description: '',
     price: '',
-    imageUrl: ''
+    imageUrl: '',
+    UserId: 1,
   };
   const [product, setproduct] = useState(emptyproduct);
 

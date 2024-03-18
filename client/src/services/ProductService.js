@@ -68,7 +68,7 @@ export async function getAll(endpoint = '/products') {
   
   export async function addRating(productId, rating) {
     try {
-      const response = await axios.post(`/product/${productId}/addRating`, rating);
+      const response = await axios.post(`/products/${productId}/addRating`, rating);
       if (response.status === 200) return response.data;
       else {
         console.log(data);
