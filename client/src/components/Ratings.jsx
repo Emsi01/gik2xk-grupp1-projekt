@@ -3,35 +3,28 @@ import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import { Button } from '@mui/material';
 import { Box} from '@mui/material';
-import {useState, useEffect} from 'react';
-/* import {useState, useEffect} from 'react'; */
-/* import {onSave} from '../views/ProductsEdit'  */
+import { useState } from 'react';
 
-import { addRating } from '../services/ProductService'; // Importera din addRating-funktion här
+import { addRating } from '../services/ProductService'; 
 
-function onSave(productId, rating) {
-  // Anropa addRating-funktionen för att spara betyget för produkten
-  addRating(productId, rating)
+
+function Ratings({product}) { 
+  const average = product.ratings.reduce((total, ratingObj) => total + ratingObj.rating, 0) / product.ratings.length;
+  const [value, setValue] = useState(0);
+function onSave() {
+
+  addRating(product.id, value)
     .then((response) => {
-      // Om betyget sparades framgångsrikt, navigera till lämplig sida med meddelande
-      navigate(`/products/${productId}/addRating`, {
+      /* navigate(`/products/${product.id}/addRating`, {
         replace: true,
-        state: { message: `Produkten med ID ${productId} betygsattes.` }
-      });
+        state: { message: `Produkten med ID ${product.id} betygsattes.` }
+      }); */
     })
     .catch((error) => {
       console.error('Error saving rating:', error);
-      // Hantera fel här, t.ex. visa ett felmeddelande för användaren
     });
 }
-
-
-
  
-function Ratings({product, onSave}) { 
-
-  const average = product.ratings.reduce((total, ratingObj) => total + ratingObj.rating, 0) / product.ratings.length;
-  const [value, setValue] = useState(0);
   
   return (
     <Box display="flex" alignItems="center" gap={2}>
@@ -49,7 +42,7 @@ function Ratings({product, onSave}) {
       </Stack>
       
       <Button
-        onClick={onSave} 
+        onClick={onSave}
         size="small"
         color="success"
         variant="contained">
@@ -60,7 +53,6 @@ function Ratings({product, onSave}) {
      );
     }
   
-
   export default Ratings; 
 
   

@@ -12,15 +12,15 @@ function ProductList() {
     }, []) 
     
     return (
-        <ul>
+        <div>
             {products?.length > 0 ? products.map(product => (
-            <li key={`products_${product.id}`}> 
+            <div key={`products_${product.id}`}> 
                 <ProductItemSmall product={product} />
-            </li>
+            </div>
             )) : (
                 <h3>Kunde inte hämta produkt</h3>
             )}
-        </ul>
+        </div>
     );
 }
 

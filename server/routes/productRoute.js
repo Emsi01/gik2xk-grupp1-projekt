@@ -23,6 +23,7 @@ router.get('/:id', (req, res) => {
   router.post('/:id/addRating', (req, res) => {
     const rating = req.body;
     const id = req.params.id;
+    console.log(id, rating)
     productService.addRating(id, rating).then((result) => {
       res.status(result.status).json(result.data);
      });

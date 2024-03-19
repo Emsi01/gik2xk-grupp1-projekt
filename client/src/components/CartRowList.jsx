@@ -14,9 +14,6 @@ import { getAll } from '../services/UserService';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 
-function ccyFormat(num) {
-  return `${num.toFixed(2)}`;
-}
 
 function priceRow(qty, unit) {
   return qty * unit;
@@ -31,17 +28,17 @@ function total(items) {
   return items.map(({ price }) => price).reduce((sum, i) => sum + i, 0);
 }
 
-const rows = [
-  createRow('Paperclips (Box)', 100, 1),
-  createRow('Paper (Case)', 10, 65.5),
-  createRow('Waste Basket', 2, 17.99),
-];
 
-const invoiceTotal = total(rows);
+
+
+/* const invoiceTotal = total(total) */;
 
 
 function CartRowList() {
   const [cart, setCart] = useState(null);
+
+  /* const totalProducts = cartRow.length;
+  console.log(totalProducts) */
 
   useEffect(() => {
     const userId = 1; // Byt ut mot det faktiska userId
@@ -86,7 +83,7 @@ function CartRowList() {
           ))}
           <TableRow>
             <TableCell colSpan={3}>Total</TableCell>
-            <TableCell align="right">{invoiceTotal}</TableCell>
+            {/* <TableCell align="right">{invoiceTotal}</TableCell> */}
           </TableRow>
         </TableBody>
       </Table>

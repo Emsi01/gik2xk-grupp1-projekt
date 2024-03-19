@@ -7,6 +7,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link, Outlet} from 'react-router-dom';
 import {Box, AppBar, Toolbar, Button, Typography} from '@mui/material';
 
+
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
     right: -3,
@@ -27,7 +28,7 @@ function App() {
           </Typography>
             <Button color="inherit"> <Link to="/products/new">{<SettingsIcon></SettingsIcon>} </Link></Button>
             <Button color="inherit"><Link to="/cart/"><IconButton aria-label="cart">
-            <StyledBadge badgeContent={4} color="secondary">
+            <StyledBadge badgeContent={0} color="secondary">
             <ShoppingCartIcon />
             </StyledBadge>
             </IconButton></Link></Button>
