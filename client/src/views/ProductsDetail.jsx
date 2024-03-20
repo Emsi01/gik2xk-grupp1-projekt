@@ -7,7 +7,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import Amount from '../components/Amount';
-import {Grid, Paper, Typography} from '@mui/material';
+import {Grid, Typography} from '@mui/material';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 
 function ProductsDetail() {
@@ -26,54 +27,37 @@ function ProductsDetail() {
       .then((product) => setProduct(product.id));
   }
 
-function onAdd() {
-  try {
-    const userId=1;
-    const amount = 1;
-    console.log(amount)
-    addToCart(userId, product.id, amount)
-    .then(() => getOne(product.id))
-    .then((product) => setProduct(product))
-  } catch (error) {
-    console.error('Error adding product to cart:', error);
-  }
-} 
   return product ? ( 
+    
     <div>
-     {/*  <ProductItemLarge product={product}/>
-      <Grid component="section" item xs={12} md={12} lg={12} xl={12} textAlign={'right'}
-      maxWidth={900}>
-      <Button onClick={()=> navigate(-1)}>Tillbaka</Button>
-      <Button onClick={onAdd}>Lägg till i varukorg</Button>
-      <Button><Link to={`/products/${product.id}/edit`}>Ändra</Link></Button>
-      <Ratings product={product} onSave={onRatingAdd}/> 
-      {<Amount/> }
-     
-      </Grid> */}
       <Typography variant="h4" mt={4}>Produktinformation</Typography>
-      <Grid container spacing={2}>
-        
-      
-     {/*  <Paper elevation={3} sx={{ p: 8, mt: 10, , borderRadius: 2 }}> */}
-     
-        <Grid component="section" item xs={6} md={6} lg={6} xl={6}>
-            <ProductItemLarge product={product}/>
-            <Button onClick={()=> navigate(-1)}>Tillbaka</Button>
-            <Button><Link to={`/products/${product.id}/edit`}>Ändra</Link></Button>
-        </Grid>
-        <Grid component="section" item xs={6} md={6} >
-            <Ratings product={product} onSave={onRatingAdd} /> 
+      <Button
+            startIcon={<ChevronLeftIcon />}
+            sx={{ mr: 1 }}
+            variant="contained"
+            onClick={() => navigate(-1)}>
             
-            <Amount/> 
-            <Button 
-            onClick={onAdd} 
-            size="small" 
-            color="info" 
-            variant="contained">Lägg till i varukorg </Button>
-           
+            Tillbaka
+              </Button>
+              <Button
+              sx={{ mr: 1 }}
+              variant="contained"
+              component={Link}
+              to={`/products/${product.id}/edit`}
+              >
+              Ändra
+              </Button>
+      <Grid container spacing={2} >
+        <Grid  component="section" item xs={12} s={12} md={12} lg={12} xl={12} >
+            <ProductItemLarge product={product}/>
+            
         </Grid>
-      {/*   </Paper> */}
-      
+        <Grid component="section" item xs={6} s={6} md={6} >
+            <Ratings product={product} onSave={onRatingAdd} /> 
+        </Grid>
+        <Grid component="section" item xs={6} s={6} md={6} >
+            <Amount/> 
+        </Grid>
       </Grid>
       
     </div>

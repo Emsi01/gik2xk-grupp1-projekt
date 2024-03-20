@@ -12,10 +12,13 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { getAll } from '../services/UserService';
 import {useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import axios from 'axios';
 
 function CartRowList() {
   const [cart, setCart] = useState(null);
+  const navigate = useNavigate();
   
 
   useEffect(() => {
@@ -77,9 +80,16 @@ function CartRowList() {
         </TableBody>
       </Table>
       <Stack direction="row" spacing={1}>
-      
       </Stack>
+      <Button
+        startIcon={<ChevronLeftIcon />}
+         sx={{ mr: 1 }}
+         variant="contained"
+        onClick={() => navigate(-1)}>
+          Tillbaka
+              </Button>
     </TableContainer>
+    
   );
 }
 }

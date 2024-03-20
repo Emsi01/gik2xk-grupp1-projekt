@@ -15,20 +15,15 @@ function onSave() {
 
   addRating(product.id, value)
     .then((response) => {
-      /* navigate(`/products/${product.id}/addRating`, {
-        replace: true,
-        state: { message: `Produkten med ID ${product.id} betygsattes.` }
-      }); */
     })
     .catch((error) => {
       console.error('Error saving rating:', error);
     });
 }
  
-  
   return (
     <Box display="flex" alignItems="center" gap={2}>
-      <Stack spacing={1}>
+      
       <Button
         onClick={onSave}
         size="small"
@@ -46,7 +41,7 @@ function onSave() {
       />
       <p>Medelbetyg: </p> 
       <Rating name="half-rating-read" defaultValue={average} precision={0.5} readOnly />
-      </Stack>
+      
     </Box>
 
      );
