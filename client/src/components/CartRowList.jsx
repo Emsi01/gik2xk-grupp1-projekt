@@ -14,31 +14,9 @@ import { getAll } from '../services/UserService';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 
-
-function priceRow(qty, unit) {
-  return qty * unit;
-}
-
-function createRow(desc, qty, unit) {
-  const price = priceRow(qty, unit);
-  return { desc, qty, unit, price };
-}
-
-function total(items) {
-  return items.map(({ price }) => price).reduce((sum, i) => sum + i, 0);
-}
-
-
-
-
-/* const invoiceTotal = total(total) */;
-
-
 function CartRowList() {
   const [cart, setCart] = useState(null);
-
-  /* const totalProducts = cartRow.length;
-  console.log(totalProducts) */
+  
 
   useEffect(() => {
     const userId = 1; // Byt ut mot det faktiska userId
@@ -52,16 +30,25 @@ function CartRowList() {
       });
   }, []);
 
+  let invoiceTotal = 0;
+  if (cart) {
+      invoiceTotal = cart.reduce((total, cartRow) => {
+          let productTotal = cartRow.products.reduce((productTotal, product) => {
+              return productTotal + (product.cartRow.amount * product.price);
+          }, 0);
+          return total + productTotal;
+      },0);
+  
+
   if (!cart) {
     return <div>Loading...</div>;
   }
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 500 }} aria-label="spanning table">
+      <Table sx={{ minWidth: 500 }} aria-label="spanning table" >
         <TableHead>
           <TableRow>
-            <TableCell>Varukorg</TableCell>
           </TableRow>
           <TableRow>
             <TableCell>Produkt</TableCell>
@@ -82,19 +69,19 @@ function CartRowList() {
             ))
           ))}
           <TableRow>
-            <TableCell colSpan={3}>Total</TableCell>
-            {/* <TableCell align="right">{invoiceTotal}</TableCell> */}
+            <TableCell colSpan={2}>Total</TableCell>
+            
+             <TableCell colSpan={2} align="right">{invoiceTotal} kr</TableCell>  
+            
           </TableRow>
         </TableBody>
       </Table>
       <Stack direction="row" spacing={1}>
-        <Button>Ta bort</Button>
-        <Button>Kassa</Button>
+      
       </Stack>
     </TableContainer>
   );
 }
-  
-
+}
 
 export default CartRowList;

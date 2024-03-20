@@ -29,6 +29,13 @@ function onSave() {
   return (
     <Box display="flex" alignItems="center" gap={2}>
       <Stack spacing={1}>
+      <Button
+        onClick={onSave}
+        size="small"
+        color="success"
+        variant="contained">
+        Ge betyg
+      </Button>
       <Rating
         name="half-rating"
         defaultValue={0}
@@ -37,17 +44,9 @@ function onSave() {
           setValue(newValue);
         }}
       />
-        <Rating name="half-rating-read" defaultValue={average} precision={0.5} readOnly />
-        <p>Betyget är: {value}</p>
+      <p>Medelbetyg: </p> 
+      <Rating name="half-rating-read" defaultValue={average} precision={0.5} readOnly />
       </Stack>
-      
-      <Button
-        onClick={onSave}
-        size="small"
-        color="success"
-        variant="contained">
-        Ge betyg
-      </Button>
     </Box>
 
      );

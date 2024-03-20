@@ -9,13 +9,12 @@ function Cart() {
 
     return  ( 
         <>
-        <Grid container spacing={2}>
-            <Grid item xl={12} sm={12}>
+        <Grid container spacing={3} justifyContent={'center'}>
+            <Grid item xs={12} sm={12} md={8} lg={8} >
                 <h2>Varukorg</h2>
             <CartRowList  />
             </Grid>
-            <Grid item xs={12} sm={4}>
-            </Grid>
+
         </Grid>
         </>
         );
