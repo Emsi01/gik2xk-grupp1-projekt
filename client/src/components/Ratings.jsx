@@ -4,7 +4,6 @@ import Stack from '@mui/material/Stack';
 import { Button } from '@mui/material';
 import { Box} from '@mui/material';
 import { useState } from 'react';
-
 import { addRating } from '../services/ProductService'; 
 
 
@@ -22,13 +21,10 @@ function onSave() {
 }
  
   return (
-    <Box display="flex" alignItems="center" gap={2}>
-      
-      <Button
-        onClick={onSave}
-        size="small"
-        color="success"
-        variant="contained">
+  
+    <Box display={'flex'} alignItems={"bottom"} flexDirection="column" gap={1} >
+    <Stack direction="row" gap={2}>
+      <Button onClick={onSave} size="small" color="success" variant="contained">
         Ge betyg
       </Button>
       <Rating
@@ -39,10 +35,13 @@ function onSave() {
           setValue(newValue);
         }}
       />
-      <p>Medelbetyg: </p> 
-      <Rating name="half-rating-read" defaultValue={average} precision={0.5} readOnly />
-      
+    </Stack>
+    <Box display={'flex'} alignItems="center" gap={2}>
+      <p style={{fontFamily: 'Gill Sans'}}>Snittbetyg:</p>
+      <Rating name="half-rating-read" value={average} precision={0.5} readOnly />
     </Box>
+  </Box>
+  
 
      );
     }

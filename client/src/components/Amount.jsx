@@ -32,22 +32,12 @@ function Amount() {
   } 
   
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        '& > *': {
-          marginBottom: 2,
-        },
-        '& .MuiBadge-root': {
-          marginRight: 4,
-        },
-      }}
-    >
+   
       <div>
-        <p>Antal: {count}</p>
+        <p style={{fontFamily: 'Gill Sans'}}>Antal: {count}</p>
         <ButtonGroup>
           <Button
+            style={{color: 'black', borderColor: 'black'}}
             aria-label="reduce"
             onClick={() => {
                 setCount(Math.max(count - 1, 0));
@@ -56,6 +46,7 @@ function Amount() {
             <RemoveIcon fontSize="small" />
           </Button>
           <Button
+            style={{color: 'black', borderColor: 'black'}}
             aria-label="increase"
             onClick={() => {
                 setCount(count + 1);
@@ -71,7 +62,7 @@ function Amount() {
             </Button>
         </ButtonGroup>
       </div>
-    </Box>
+   
   );
 }
 

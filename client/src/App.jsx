@@ -40,7 +40,7 @@ function App() {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} m={3} >
               <Link to="/" style={{ textDecoration: 'none', color: 'black' }}>{<HomeIcon fontSize='large'></HomeIcon>}</Link>
             </Typography>
-            <Typography variant="h4" component="div" sx={{ flexGrow: 20, }} fontFamily={'Brush Script MT'}  > Webbshoppen för dig med stor penis och liten förhud 
+            <Typography variant="h4" component="div" sx={{ flexGrow: 20, }} fontFamily={'Brush Script MT'}  > Webbshopp GIK2XK 
             </Typography>
             <Button > <Link to="/products/new" style={{ textDecoration: 'none', color: 'black' }} > {<SettingsIcon fontSize="large"></SettingsIcon>} </Link></Button>
             <IconButton aria-label="cart"><Link to="/cart/">

@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import Amount from '../components/Amount';
 import {Grid, Typography} from '@mui/material';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import RatingList from '../components/RatingList';
 
 
 function ProductsDetail() {
@@ -30,7 +31,10 @@ function ProductsDetail() {
   return product ? ( 
     
     <div>
-      <Typography variant="h4" mt={4}>Produktinformation</Typography>
+      
+      <Grid container spacing={2} justifyContent={"center"} >
+      <Grid style={{marginBlock: "1rem"}} component="section" item xs={10} md={8} >
+      <Typography variant="h4" style={{fontFamily: 'Gill Sans'}}>Produktinformation</Typography>
       <Button
             startIcon={<ChevronLeftIcon />}
             sx={{ mr: 1 }}
@@ -47,16 +51,25 @@ function ProductsDetail() {
               >
               Ändra
               </Button>
-      <Grid container spacing={2} >
-        <Grid  component="section" item xs={12} s={12} md={12} lg={12} xl={12} >
+              </Grid>
+        <Grid style={{marginBlock: "1rem"}} component="section" item xs={10} s={9} md={8} lg={7} >
             <ProductItemLarge product={product}/>
-            
+            </Grid>
         </Grid>
-        <Grid component="section" item xs={6} s={6} md={6} >
+        <Grid container spacing={2} justifyContent={"center"} >
+        <Grid component="section" item xs={5} md={4} >
             <Ratings product={product} onSave={onRatingAdd} /> 
         </Grid>
-        <Grid component="section" item xs={6} s={6} md={6} >
+        <Grid component="section" item xs={5} md={4} >
             <Amount/> 
+            
+        </Grid>
+        
+        <Grid component="section" item xs={10} md={8}>
+          <Typography style={{fontFamily: 'Gill Sans'}}>Alla betyg: </Typography>
+
+             <RatingList product={product}/>
+            
         </Grid>
       </Grid>
       
