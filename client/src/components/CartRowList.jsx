@@ -19,7 +19,7 @@ function CartRowList() {
   
 
   useEffect(() => {
-    const userId = 1; // Byt ut mot det faktiska userId
+    const userId = 1; 
 
     axios.get(`/users/${userId}/getCart`)
       .then(response => {

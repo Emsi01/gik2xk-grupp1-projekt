@@ -35,7 +35,6 @@ async function getAll() {
           db.ratings,
         ]
       });
-      /* Om allt blev bra, returnera post */
       return createResponseSuccess(products);
     } catch (error) {
       return createResponseError(error.status, error.message);
@@ -62,7 +61,6 @@ async function getAll() {
     }
     try {
       const newProducts = await db.products.create(products);
-      //post tags är en array av namn
   
       return createResponseSuccess(newProducts);
     } catch (error) {
