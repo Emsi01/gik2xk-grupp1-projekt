@@ -1,10 +1,9 @@
 const db = require('../models');
 const {
   createResponseSuccess,
-  createResponseError,
-  createResponseMessage
+  createResponseError
 } = require('../helpers/responseHelper');
-const validate = require('validate.js');
+
 
 async function getByUser(userId) {
     try {
@@ -12,7 +11,7 @@ async function getByUser(userId) {
       const allCarts = await users.getCarts({
         where: { userId },
         include: {
-            model: db.products // Antag att db.cartRow är din modell för cartRow
+            model: db.products 
         }
     });
     
