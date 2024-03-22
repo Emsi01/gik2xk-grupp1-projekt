@@ -1,8 +1,6 @@
 import * as React from 'react';
-import { Box} from '@mui/material';
 import Card from '@mui/material/Card';
 import {Typography, Grid}from '@mui/material';
-import Container from '@mui/material/Container';
 
 function ProductItemLarge({product}) {
     

@@ -14,9 +14,6 @@ function ProductList() {
     
     return (
 
-        
-
-        
         <div>
             <Grid  container spacing={1} gap={2} mt={5} justifyContent={"center"}>
             {products?.length > 0 ? products.map(product => (

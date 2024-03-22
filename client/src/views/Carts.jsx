@@ -12,7 +12,6 @@ function Cart() {
                 <h2>Varukorg</h2>
             <CartRowList  />
             </Grid>
-
         </Grid>
         </>
         );

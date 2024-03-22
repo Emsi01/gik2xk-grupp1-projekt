@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import ProductItemLarge from '../components/ProductItemLarge';
 import { Button} from '@mui/material';
 import Ratings from '../components/Ratings'
-import { addRating, getOne, addToCart } from '../services/ProductService';
+import { addRating, getOne } from '../services/ProductService';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';

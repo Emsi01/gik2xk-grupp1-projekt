@@ -7,7 +7,6 @@ import { create, getOne, remove, update } from '../services/ProductService';
 import {
   Box,
   Button,
-  Chip,
   Container,
   TextField,
   Typography
