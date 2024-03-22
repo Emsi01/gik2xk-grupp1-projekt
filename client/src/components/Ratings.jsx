@@ -21,7 +21,6 @@ function onSave() {
 }
  
   return (
-  
     <Box display={'flex'} alignItems={"bottom"} flexDirection="column" gap={1} >
     <Stack direction="row" gap={2}>
       <Button onClick={onSave} size="small" color="success" variant="contained">
@@ -41,8 +40,6 @@ function onSave() {
       <Rating name="half-rating-read" value={average} precision={0.5} readOnly />
     </Box>
   </Box>
-  
-
      );
     }
   

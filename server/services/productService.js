@@ -5,8 +5,6 @@ const {
   createResponseMessage
 } = require('../helpers/responseHelper');
 const validate = require('validate.js');
-/* const products = require('../models/products'); */
-/* const { canTreatArrayAsAnd } = require('sequelize/types/utils'); */
 
 const constraints = {
   title: {

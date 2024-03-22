@@ -40,15 +40,13 @@ function ProductsDetail() {
             sx={{ mr: 1 }}
             variant="contained"
             onClick={() => navigate(-1)}>
-            
             Tillbaka
               </Button>
               <Button
               sx={{ mr: 1 }}
               variant="contained"
               component={Link}
-              to={`/products/${product.id}/edit`}
-              >
+              to={`/products/${product.id}/edit`}>
               Ändra
               </Button>
               </Grid>
@@ -62,14 +60,10 @@ function ProductsDetail() {
         </Grid>
         <Grid component="section" item xs={5} md={4} >
             <Amount/> 
-            
         </Grid>
-        
         <Grid component="section" item xs={10} md={8}>
           <Typography style={{fontFamily: 'Gill Sans'}}>Alla betyg: </Typography>
-
              <RatingList product={product}/>
-            
         </Grid>
       </Grid>
       

@@ -6,9 +6,7 @@ function ProductItemLarge({product}) {
     
     return (
     <>
-    {/* <Container maxWidth="m"> */}
       <Grid container spacing={2} >
-      
       <Grid component="section" item xs={6} md={6} lg={6} xl={6}>
        <Card elevation={3}>
            <img src={product.imageUrl} style={{width: '100%'}} alt={`Bild på ${product.title}`}/>
@@ -28,8 +26,6 @@ function ProductItemLarge({product}) {
           </Card>
           </Grid>
           </Grid>
-          {/* </Container> */}
-    
     </>
     );
     

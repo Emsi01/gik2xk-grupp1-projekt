@@ -18,7 +18,6 @@ router.get('/:id', (req, res) => {
     });
   });
   
-
 // Ge produkt betyg 
   router.post('/:id/addRating', (req, res) => {
     const rating = req.body;
